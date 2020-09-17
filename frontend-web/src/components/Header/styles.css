@@ -1,5 +1,5 @@
 .main-header {
-  height: 30px;
+  /* height: 30px; */
   padding: 20px 40px;
   display: flex;
   background-color: var(--color-darkslategray);
