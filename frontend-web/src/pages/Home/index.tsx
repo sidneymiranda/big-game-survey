@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ReactComponent as ArrowIcon } from "../../assets/arrow.svg";
 import { ReactComponent as GamerImage } from "../../assets/gamer.svg";
@@ -13,12 +14,14 @@ const Home = () => (
         escolhendo!
       </h3>
 
-      <div className="home-actions">
-        <button className="home-btn">QUERO SABER QUAIS SÃO</button>
-        <div className="home-btn-icon">
-          <ArrowIcon />
+      <Link to="/records">
+        <div className="home-actions">
+          <button className="home-btn">QUERO SABER QUAIS SÃO</button>
+          <div className="home-btn-icon">
+            <ArrowIcon />
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
 
     <GamerImage className="home-image" />
