@@ -56,7 +56,14 @@ public class RecordResource {
 			linesPerPage = 12;
 		}
 		
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		Direction sortDirection;
+		try {
+			sortDirection = Direction.fromString(direction.toUpperCase());
+		} catch (Exception e) {
+			sortDirection = Direction.DESC;
+		}
+		
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, sortDirection, orderBy);
 		
 		Page<RecordDTO> list = service.findByMoments(minDate, maxDate, pageRequest);
 		return ResponseEntity.ok().body(list);
