@@ -33,7 +33,8 @@ public class RecordService {
 		entity.setAge(dto.getAge());
 		entity.setMoment(Instant.now());
 
-		Game game = gameRepository.getOne(dto.getGameId());
+		Game game = gameRepository.findById(dto.getGameId())
+				.orElseThrow(() -> new IllegalArgumentException("Game not found with id: " + dto.getGameId()));
 		entity.setGame(game);
 
 		entity = repository.save(entity);

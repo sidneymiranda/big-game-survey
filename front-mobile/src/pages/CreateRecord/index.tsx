@@ -60,7 +60,6 @@ const CreateRecord = () => {
     axios.get(`${BASE_URL}/games`)
       .then(response => {
         const selectValues = mapSelectValues(response.data);
-        console.log(selectValues)
         setAllGames(selectValues);
       })
       .catch(() => Alert.alert('Erro ao listar os games!'))
